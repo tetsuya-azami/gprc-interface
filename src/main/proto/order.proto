@@ -1,0 +1,66 @@
+syntax = "proto3";
+package com.example.grpcinterface.proto;
+option java_package = "com.example.grpcinterface.proto";
+
+import "google/protobuf/timestamp.proto";
+
+message OrderCreationRequest{
+  repeated Items items = 1;
+  Chain chain = 2;
+  Shop shop = 3;
+  Delivery delivery = 4;
+  User user = 5;
+  Payment payment = 6;
+  google.protobuf.Timestamp time = 7;
+}
+
+message Items{
+  message Attribute{
+    int64 id = 1;
+    string name = 2;
+    string value = 3;
+  }
+  int64 id = 1;
+  string name = 2;
+  double price = 3;
+  repeated Attribute attributes = 4;
+  int32 quantity = 5;
+}
+
+message Chain{
+  int64 id = 1;
+}
+
+message Shop{
+  int64 id = 1;
+}
+
+message Delivery{
+  enum Type{
+    IMMEDIATE = 0;
+    SPECIFIED = 1;
+    RESERVED = 2;
+  }
+  Type type = 1;
+  int64 addressId = 2;
+}
+
+message User{
+  int64 id = 1;
+}
+
+message Payment{
+  enum PaymentMethod{
+    CASH = 0;
+    CREDIT = 1;
+    PAYPAY = 2;
+    AMAZONPAY = 3;
+    GOOGLEPAY = 4;
+    APPLEPAY = 5;
+  }
+  PaymentMethod paymentMethod = 1;
+  int64 deliveryCharge = 2;
+  int64 nonTaxedTotalPrice = 3;
+  int64 tax = 4;
+  int64 taxedTotalPrice = 5;
+}
