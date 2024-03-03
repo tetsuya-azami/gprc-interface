@@ -4,7 +4,15 @@ option java_package = "com.example.grpcinterface.proto";
 
 import "google/protobuf/timestamp.proto";
 
+service OrderService{
+  rpc CreateOrder(OrderCreationRequest) returns (OrderCreationResponse);
+}
+
 message OrderCreationRequest{
+  Order order = 1;
+}
+
+message Order{
   repeated Items items = 1;
   Chain chain = 2;
   Shop shop = 3;
@@ -12,6 +20,10 @@ message OrderCreationRequest{
   User user = 5;
   Payment payment = 6;
   google.protobuf.Timestamp time = 7;
+}
+
+message OrderCreationResponse{
+  int64 id = 1;
 }
 
 message Items{
