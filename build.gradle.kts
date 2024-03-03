@@ -18,9 +18,13 @@ val protobufVersion = "3.25.3"
 val grpcKotlinVersion = "1.3.0"
 
 
-dependencies{
+dependencies {
     // protoファイル内でgoogle/protobuf/配下のパッケージを使用するために必要(etc google.protobuf.Timestamp)
     implementation("com.google.protobuf:protobuf-java:${protobufVersion}")
+    implementation("com.google.protobuf:protobuf-kotlin:${protobufVersion}")
+    implementation("io.grpc:grpc-protobuf:${grpcVersion}")
+    implementation("io.grpc:grpc-stub:${grpcVersion}")
+    implementation("io.grpc:grpc-kotlin-stub:${grpcKotlinVersion}")
 }
 
 protobuf {
