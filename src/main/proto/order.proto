@@ -51,7 +51,6 @@ message Delivery{
   enum Type{
     IMMEDIATE = 0;
     SPECIFIED = 1;
-    RESERVED = 2;
   }
   Type type = 1;
   int64 addressId = 2;
