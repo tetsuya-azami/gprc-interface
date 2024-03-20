@@ -3,6 +3,7 @@ package com.example.grpcinterface.proto;
 option java_package = "com.example.grpcinterface.proto";
 
 import "google/protobuf/timestamp.proto";
+import "google/type/money.proto";
 
 service OrderService{
   rpc CreateOrder(OrderCreationRequest) returns (OrderCreationResponse);
@@ -34,7 +35,7 @@ message Items{
   }
   int64 id = 1;
   string name = 2;
-  double price = 3;
+  google.type.Money price = 3;
   repeated Attribute attributes = 4;
   int32 quantity = 5;
 }
