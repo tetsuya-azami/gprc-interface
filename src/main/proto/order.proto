@@ -23,7 +23,7 @@ message Order{
 }
 
 message OrderCreationResponse{
-  int64 id = 1;
+  string id = 1;
 }
 
 message Items{
