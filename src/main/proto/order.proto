@@ -77,8 +77,8 @@ message Payment{
     APPLEPAY = 5;
   }
   PaymentMethod paymentMethod = 1;
-  int64 deliveryCharge = 2;
-  int64 nonTaxedTotalPrice = 3;
-  int64 tax = 4;
-  int64 taxedTotalPrice = 5;
+  google.type.Money deliveryCharge = 2;
+  google.type.Money nonTaxedTotalPrice = 3;
+  google.type.Money tax = 4;
+  google.type.Money taxedTotalPrice = 5;
 }
