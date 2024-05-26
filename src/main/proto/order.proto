@@ -18,7 +18,7 @@ message OrderCreationResponse{
 }
 
 message Order{
-  repeated OrderItem items = 1;
+  repeated OrderItem orderItems = 1;
   Chain chain = 2;
   Shop shop = 3;
   Delivery delivery = 4;
