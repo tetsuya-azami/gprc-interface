@@ -60,10 +60,8 @@ message OrderItem{
 
 message OrderItemHistory{
   int64 id = 1;
-  string name = 2;
-  //  string image = 3;
-  repeated AttributeHistory attributes = 4;
-  int32 quantity = 5;
+  repeated AttributeHistory attributes = 2;
+  int32 quantity = 3;
 }
 
 message AttributeHistory{
