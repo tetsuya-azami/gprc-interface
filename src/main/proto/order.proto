@@ -7,6 +7,7 @@ import "google/type/money.proto";
 
 service OrderService{
   rpc CreateOrder(OrderCreationRequest) returns (OrderCreationResponse);
+  rpc GetOrderHistory(OrderHistoryRequest) returns (OrderHistoryResponse);
 }
 
 message OrderCreationRequest{
@@ -17,6 +18,14 @@ message OrderCreationResponse{
   string id = 1;
 }
 
+message OrderHistoryRequest{
+  int64  userId = 1;
+}
+
+message OrderHistoryResponse{
+  repeated OrderHistory orderHistories = 1;
+}
+
 message Order{
   repeated OrderItem orderItems = 1;
   Chain chain = 2;
@@ -25,6 +34,15 @@ message Order{
   User user = 5;
   Payment payment = 6;
   google.protobuf.Timestamp time = 7;
+}
+
+message OrderHistory{
+  string orderId = 1;
+  repeated OrderItemHistory orderItems = 2;
+  google.type.Money totalPrice = 3;
+  int32 userId = 4;
+  string userName = 5;
+  google.protobuf.Timestamp orderDateTime = 6;
 }
 
 message OrderItem{
@@ -38,6 +56,20 @@ message OrderItem{
   google.type.Money price = 3;
   repeated Attribute attributes = 4;
   int32 quantity = 5;
+}
+
+message OrderItemHistory{
+  int64 id = 1;
+  string name = 2;
+  //  string image = 3;
+  repeated AttributeHistory attributes = 4;
+  int32 quantity = 5;
+}
+
+message AttributeHistory{
+  int64 id = 1;
+  string name = 2;
+  string value = 3;
 }
 
 message Chain{
