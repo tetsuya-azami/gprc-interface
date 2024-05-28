@@ -39,10 +39,9 @@ message Order{
 message OrderHistory{
   string orderId = 1;
   repeated OrderItemHistory orderItems = 2;
-  google.type.Money totalPrice = 3;
+  google.type.Money taxedTotalPrice = 3;
   int32 userId = 4;
-  string userName = 5;
-  google.protobuf.Timestamp orderDateTime = 6;
+  google.protobuf.Timestamp orderDateTime = 5;
 }
 
 message OrderItem{
