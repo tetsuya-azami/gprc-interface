@@ -1,7 +1,7 @@
 import com.google.protobuf.gradle.id
 
 plugins {
-    kotlin("jvm") version "1.9.22"
+    kotlin("jvm") version "1.9.24"
     id("com.google.protobuf") version "0.9.4"
 }
 
