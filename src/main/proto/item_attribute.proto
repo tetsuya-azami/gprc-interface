@@ -1,0 +1,35 @@
+syntax = "proto3";
+package com.example.grpcinterface.proto;
+option java_package = "com.example.grpcinterface.proto";
+
+import "google/type/money.proto";
+
+service ItemAttributeService {
+  rpc GetItemsWithSelectedAttributes(ItemsWithSelectedAttributesRequest) returns (ItemsWithSelectedAttributesResponse);
+}
+
+message ItemsWithSelectedAttributesRequest{
+  message ItemWithAttributeIds{
+    int64 itemId = 1;
+    int64 chainId = 2;
+    int64 shopId = 3;
+    repeated int64 selectedAttributeIds = 4;
+  }
+  repeated ItemWithAttributeIds itemIdsWithAttributeIds = 1;
+}
+
+message ItemsWithSelectedAttributesResponse{
+  message ItemWithAttributes{
+    int64 itemId = 1;
+    string name = 2;
+    google.type.Money price = 3;
+    repeated Attribute selectedAttributes = 4;
+  }
+  repeated ItemWithAttributes itemsWithAttributes = 1;
+}
+
+message Attribute{
+  int64 id = 1;
+  string name = 2;
+  string value = 3;
+}
