@@ -21,7 +21,7 @@ message ItemsWithSelectedAttributesRequest{
 message ItemsWithSelectedAttributesResponse{
   message ItemWithAttributes{
     int64 itemId = 1;
-    string name = 2;
+    string name = 2; // TODO: 削除予定 https://github.com/tetsuya-azami/api-grpc-integration/issues/7
     google.type.Money price = 3;
     repeated Attribute selectedAttributes = 4;
   }
@@ -30,6 +30,6 @@ message ItemsWithSelectedAttributesResponse{
 
 message Attribute{
   int64 id = 1;
-  string name = 2;
-  string value = 3;
+  string name = 2; // TODO: 削除予定 https://github.com/tetsuya-azami/api-grpc-integration/issues/7
+  string value = 3; // TODO: 削除予定 https://github.com/tetsuya-azami/api-grpc-integration/issues/7
 }
