@@ -5,31 +5,20 @@ option java_package = "com.example.grpcinterface.proto";
 import "google/type/money.proto";
 
 service ItemAttributeService {
-  rpc GetItemsWithSelectedAttributes(ItemsWithSelectedAttributesRequest) returns (ItemsWithSelectedAttributesResponse);
+  rpc CheckItemsWithSelectedAttributes(CheckItemsWithSelectedAttributesRequest) returns (CheckItemsWithSelectedAttributesResponse);
 }
 
-message ItemsWithSelectedAttributesRequest{
+message CheckItemsWithSelectedAttributesRequest{
   message ItemWithAttributeIds{
     int64 itemId = 1;
     int64 chainId = 2;
     int64 shopId = 3;
-    repeated int64 selectedAttributeIds = 4;
+    google.type.Money price = 4;
+    repeated int64 selectedAttributeIds = 5;
   }
   repeated ItemWithAttributeIds itemIdsWithAttributeIds = 1;
 }
 
-message ItemsWithSelectedAttributesResponse{
-  message ItemWithAttributes{
-    int64 itemId = 1;
-    string name = 2; // TODO: 削除予定 https://github.com/tetsuya-azami/api-grpc-integration/issues/7
-    google.type.Money price = 3;
-    repeated Attribute selectedAttributes = 4;
-  }
-  repeated ItemWithAttributes itemsWithAttributes = 1;
-}
-
-message Attribute{
-  int64 id = 1;
-  string name = 2; // TODO: 削除予定 https://github.com/tetsuya-azami/api-grpc-integration/issues/7
-  string value = 3; // TODO: 削除予定 https://github.com/tetsuya-azami/api-grpc-integration/issues/7
+message CheckItemsWithSelectedAttributesResponse{
+  int32 resultCode = 1;
 }
