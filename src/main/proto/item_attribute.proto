@@ -16,7 +16,7 @@ message CheckItemsWithSelectedAttributesRequest{
     google.type.Money price = 4;
     repeated int64 selectedAttributeIds = 5;
   }
-  repeated ItemWithAttributeIds itemIdsWithAttributeIds = 1;
+  repeated ItemWithAttributeIds itemWithAttributeIds = 1;
 }
 
 message CheckItemsWithSelectedAttributesResponse{
