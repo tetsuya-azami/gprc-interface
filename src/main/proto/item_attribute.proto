@@ -10,10 +10,10 @@ service ItemAttributeService {
 
 message CheckItemsWithSelectedAttributesRequest{
   message ItemWithAttributeIds{
-    int64 itemId = 1;
-    int64 chainId = 2;
-    int64 shopId = 3;
-    google.type.Money price = 4;
+    optional int64 itemId = 1;
+    optional int64 chainId = 2;
+    optional int64 shopId = 3;
+    optional google.type.Money price = 4;
     repeated int64 selectedAttributeIds = 5;
   }
   repeated ItemWithAttributeIds itemWithAttributeIds = 1;
