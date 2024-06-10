@@ -97,7 +97,7 @@ message User{
 }
 
 message Payment{
-  enum PaymentMethod{
+  enum Method{
     CASH = 0;
     CREDIT = 1;
     PAYPAY = 2;
@@ -105,7 +105,7 @@ message Payment{
     GOOGLEPAY = 4;
     APPLEPAY = 5;
   }
-  PaymentMethod paymentMethod = 1;
+  Method method = 1;
   google.type.Money deliveryCharge = 2;
   google.type.Money nonTaxedTotalPrice = 3;
   google.type.Money tax = 4;
